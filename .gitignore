@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+
+# Generated runtime data and downloaded models
+logs/
+backend/models/
+*.log
+error.txt
+
+# Frontend dependencies and build output
+simulation/node_modules/
+simulation/dist/
+
+# Local inspection checkout used while preparing the initial push
+.remote-inspect/

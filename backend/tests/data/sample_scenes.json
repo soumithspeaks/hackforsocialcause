@@ -1,0 +1,42 @@
+[
+  {
+    "name": "clear_indoor_corridor",
+    "description": "No simulated obstacles in the camera view.",
+    "metadata": {
+      "source": "simulation",
+      "scene": "indoor",
+      "camera_position": {"x": 0, "y": 1.6, "z": 0},
+      "camera_rotation_y": 0,
+      "scene_obstacles": []
+    },
+    "expected": {"path_status": "clear", "object_count": 0, "urgency": "routine"}
+  },
+  {
+    "name": "close_pole_in_path",
+    "description": "A high hazard directly in front of the camera.",
+    "metadata": {
+      "source": "simulation",
+      "scene": "indoor",
+      "camera_position": {"x": 0, "y": 1.6, "z": 2},
+      "camera_rotation_y": 0,
+      "scene_obstacles": [
+        {"label": "pole", "hazard": "high", "position": {"x": 0, "y": 0, "z": 0}}
+      ]
+    },
+    "expected": {"path_status": "blocked", "object_count": 1, "label": "pole", "direction": "ahead", "distance": "very_close", "in_path": true}
+  },
+  {
+    "name": "vehicle_hazard",
+    "description": "A critical vehicle directly ahead at close range.",
+    "metadata": {
+      "source": "simulation",
+      "scene": "realistic_outdoor",
+      "camera_position": {"x": 0, "y": 1.6, "z": 0},
+      "camera_rotation_y": 0,
+      "scene_obstacles": [
+        {"label": "vehicle", "hazard": "critical", "position": {"x": 0, "y": 0, "z": -1}}
+      ]
+    },
+    "expected": {"path_status": "blocked", "object_count": 1, "label": "vehicle", "direction": "ahead", "in_path": true, "scene_type": "outdoor"}
+  }
+]
